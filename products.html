@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veeluxe Products</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Remix Icon -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Page Specific CSS -->
+  <link rel="stylesheet" href="products.css">
+</head>
+<body class="products-page">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 py-2 shadow-sm fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logowb.png" alt="logo" class="logo-image"/>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link position-relative cart-icon" href="cart.html">
+              <i class="ri-shopping-cart-2-line fs-4"></i>
+              <span class="cart-count badge rounded-pill bg-danger">0</span>
+            </a>
+          </li>
+        </ul>
+        <form class="d-flex ms-lg-3" role="search">
+          <input class="form-control me-2 rounded-start" type="search" placeholder="Search products...">
+          <button class="btn btn-orangered rounded-end" type="submit"><i class="ri-search-line"></i></button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PRODUCTS GRID -->
+  <section class="bestsellers py-5 mt-5">
+    <div class="container">
+      <h2 class="text-center mb-4 section-title">Our Products</h2>
+      <div class="row g-4">
+        
+        <!-- Product Card -->
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="images/luxefs.jpg" alt="Luxe Face Set" class="product-img">
+            <div class="product-info">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="product-name">Luxe Face Set</span>
+                <span class="price">&#8358;17,250</span>
+              </div>
+              <div class="product-stars">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="desc">The best combo to treat hyperpigmentation, sunburn, dark spots, blackheads, whiteheads, etc.</p>
+              <button class="btn btn-cart w-100 mt-2">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card -->
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="images/slbb.jpg" alt="Luxe Body Butter" class="product-img">
+            <div class="product-info">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="product-name">Luxe Body Butter (150ml)</span>
+                <span class="price">&#8358;6,450</span>
+              </div>
+              <div class="product-stars">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="desc">deeply moisturized the skin, fades stretch marks, dark knuckles, dark inner thighs, knees, elbow, armpits, white patches or any body discoloration.</p>
+              <button class="btn btn-cart w-100 mt-2">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card -->
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="images/blbb.jpg" alt="Luxe Body Butter" class="product-img">
+            <div class="product-info">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="product-name">Big Luxe Body Butter (250ml)</span>
+                <span class="price">&#8358;6,450</span>
+              </div>
+              <div class="product-stars">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="desc">deeply moisturized the skin, fades stretch marks, dark knuckles, dark inner thighs, knees, elbow, armpits, white patches or any body discoloration.</p>
+              <button class="btn btn-cart w-100 mt-2">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Eight placeholder product cards -->
+<div class="col-md-4">
+  <div class="product-card">
+    <img src="images/vfc.jpg" alt="Product Name 4" class="product-img">
+    <div class="product-info">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="product-name">Luxe Face Cream</span>
+        <span class="price">&#8358;6,000</span>
+      </div>
+      <div class="product-stars">
+        <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+      </div>
+      <p class="desc">Brightens dull skin, fades acne scars and dark spots over time and moisturizes, reduces hyperpigmentation, soothes and calms irritated skin.</p>
+      <button class="btn btn-cart w-100 mt-2">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="product-card">
+    <img src="images/Luxe glow oil .jpg" alt="Product Name 5" class="product-img">
+    <div class="product-info">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="product-name">Luxe Glow Oil</span>
+        <span class="price">&#8358;5,100</span>
+      </div>
+      <div class="product-stars">
+        <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+      </div>
+      <p class="desc">Helps repair damaged skin, fades dark spots, brighten the skin, deeply nourishes and hydrates, also enhances your natural glow.</p>
+      <button class="btn btn-cart w-100 mt-2">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="product-card">
+    <img src="images/lfs.jpg" alt="Product Name 6" class="product-img">
+    <div class="product-info">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="product-name">Luxe Face Soap</span>
+        <span class="price">&#8358;4,250</span>
+      </div>
+      <div class="product-stars">
+        <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+      </div>
+      <p class="desc">Fights acne and blemishes, fades black spots and hyperpigmentation, deeply moisturizes and softens.</p>
+      <button class="btn btn-cart w-100 mt-2">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="product-card">
+    <img src="images/lfc.jpg" alt="Product Name 7" class="product-img">
+    <div class="product-info">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="product-name">Luxe Face Cleanser</span>
+        <span class="price">&#8358;7,000</span>
+      </div>
+      <div class="product-stars">
+        <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+      </div>
+      <p class="desc">Treats hyperpigmentation, repairs and strengthens skin barrier, fades dark spots and acne scars, brightenes dull skin and evens out skin tone.</p>
+      <button class="btn btn-cart w-100 mt-2">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="product-card">
+    <img src="images/Radiance face cleanser .jpg" alt="rfc" class="product-img">
+    <div class="product-info">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="product-name">Radiance Face Cleanser</span>
+        <span class="price">&#8358;7,000</span>
+      </div>
+      <div class="product-stars">
+        <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+      </div>
+      <p class="desc">Deeply cleanse, reduce and prevent breakout, gently exfoliates, soothes inflamation and redness.</p>
+      <button class="btn btn-cart w-100 mt-2">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="product-card">
+    <img src="images/Glow illuminating scrub .JPG" alt="Glow illuminating scrub" class="product-img">
+    <div class="product-info">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="product-name">Glow Illuminating Scrub</span>
+        <span class="price">&#8358;6,000</span>
+      </div>
+      <div class="product-stars">
+        <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+      </div>
+      <p class="desc">Gently exfoliates dead skin, boosts skin renewal, fights dryness and rough patches, improves skin texture, removes impurites and suitable for all skin types.</p>
+      <button class="btn btn-cart w-100 mt-2">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="product-card">
+    <img src="images/Lipcare .jpg" alt="lipcare img" class="product-img">
+    <div class="product-info">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="product-name">Lipcare Set</span>
+        <span class="price">&#8358;10,000</span>
+      </div>
+      <div class="product-stars">
+        <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+      </div>
+      <p class="desc">Repairs cracked or dry lips, restores natural softness, deeply moisturizes, enhances lip texture and prevents dry lips.</p>
+      <button class="btn btn-cart w-100 mt-2">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="product-card">
+    <img src="images/Luxe body lotion .jpg" alt="Product Name 11" class="product-img">
+    <div class="product-info">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="product-name">Luxe Body Lotion</span>
+        <span class="price">&#8358;11,500</span>
+      </div>
+      <div class="product-stars">
+        <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+      </div>
+      <p class="desc">Fades scars and marks, lightens up the skin in a very healthy way, improves skin texture, moisturizes deeply, brightens and evens out the skin tone revealing a brighter and visible glow.</p>
+      <button class="btn btn-cart w-100 mt-2">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+        <!-- Product Card -->
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="images/black body soap.jpg" alt="Luxe Black Body Soap" class="product-img">
+            <div class="product-info">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="product-name">Luxe Black Body Soap</span>
+                <span class="price">&#8358;6,550</span>
+              </div>
+              <div class="product-stars">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="desc">Deeply detoxifies, fights acne, gently exfoliates, fades dark spots, promotes healthy glow.</p>
+              <button class="btn btn-cart w-100 mt-2">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card -->
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="images/Face mask .jpg" alt="Luxe Black Body Soap" class="product-img">
+            <div class="product-info">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="product-name">Face Mask</span>
+                <span class="price">&#8358;1,000</span>
+              </div>
+              <div class="product-stars">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="desc">soothes inflammation and redness ,minimizes appearances of skin pores,nourishes and rejuvenates the skin, and hydrates deeply</p>
+              <button class="btn btn-cart w-100 mt-2">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-custom py-5 text-white">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-stretch gap-4">
+        <div class="footer-col">
+          <h5 class="mb-3">Follow Us</h5>
+          <div class="footer-socials">
+            <a href="#"><i class="ri-instagram-line ri-2x"></i></a>
+            <a href="#"><i class="ri-whatsapp-line ri-2x"></i></a>
+            <a href="#"><i class="ri-tiktok-line ri-2x"></i></a>
+            <a href="#"><i class="ri-snapchat-line ri-2x"></i></a>
+          </div>
+        </div>
+        <div class="footer-col" id="contact">
+          <h5 class="mb-3">Contact Us</h5>
+          <form>
+            <input type="text" class="form-control mb-2" placeholder="Your Name" required>
+            <input type="email" class="form-control mb-2" placeholder="Your Email" required>
+            <textarea class="form-control mb-2" rows="2" placeholder="Message" required></textarea>
+            <button type="submit" class="btn btn-primary w-100">Send</button>
+          </form>
+        </div>
+        <div class="footer-col">
+          <h5 class="mb-3">Navigate</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link position-relative cart-icon" href="cart.html">
+              <i class="ri-shopping-cart-2-line fs-4"></i>
+              <span class="cart-count badge rounded-pill bg-danger">0</span>
+            </a>
+          </li>
+        </div>
+      </div>
+      <hr class="border-light my-4">
+      <p class="mb-0 text-center">&copy; 2025 Veeluxe. All rights reserved.</p>
+    </div>
+  </footer>
+<!-- Page Specific JS -->
+  <script src="script.js"></script>
+</body>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</html>

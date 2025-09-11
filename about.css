@@ -1,0 +1,378 @@
+/*────────────────────────────────────────────────────────────────────────────
+  Variables & Reset
+────────────────────────────────────────────────────────────────────────────*/
+:root {
+  --brand-color: #FF5722;
+  --brand-dark:  #E64A19;
+  --text-dark:   #333;
+  --text-light:  #fff;
+  --bg-light:    #fef8f7;
+  --bg-dark:     #222;
+  --gray:        #555;
+  --transition:  0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/*────────────────────────────────────────────────────────────────────────────
+  Navbar
+────────────────────────────────────────────────────────────────────────────*/
+.navbar {
+  background: var(--text-light);
+  padding: 0.75rem 2rem !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+.logo-image {
+  height: 70px;
+}
+
+.nav-link {
+  color: var(--text-dark) !important;
+  margin-left: 1rem;
+  transition: color var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--brand-color) !important;
+}
+
+.btn-orangered {
+  background: var(--brand-color);
+  color: var(--text-light);
+  border: none;
+  padding: 0.4rem 0.9rem;
+  transition: background var(--transition);
+}
+
+.btn-orangered:hover {
+  background: var(--brand-dark);
+}
+
+/*────────────────────────────────────────────────────────────────────────────
+  Hero Section Placeholder
+────────────────────────────────────────────────────────────────────────────*/
+.about-hero {
+  position: relative;
+  height: 90vh;
+  background-image: url('images/about-hero.jpg');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-light);
+  background-size: cover;
+  background-position: center center;
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  pointer-events: none;
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: var(--brand-color);
+}
+
+.about-hero p {
+  font-size: 1.2rem;
+}
+
+/*────────────────────────────────────────────────────────────────────────────
+  Main Content Sections
+────────────────────────────────────────────────────────────────────────────*/
+main.about-page {
+  padding: 3rem 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.about-banner {
+  margin-bottom: 2rem;
+}
+
+.about-banner h2 {
+  color: var(--brand-color);
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-banner p {
+  text-align: center;
+  color: var(--gray);
+  font-size: 1.1rem;
+}
+
+/* Founder Story Card */
+.founder-story {
+  background: var(--bg-light);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  text-align: center;
+}
+
+.founder-story img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--brand-color);
+  margin-bottom: 1rem;
+}
+
+/* Brand Values */
+.brand-values {
+  background: var(--bg-light);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+}
+
+.brand-values h2 {
+  color: var(--brand-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.value-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.value-list li {
+  background: var(--text-light);
+  border-radius: 10px;
+  padding: 1rem;
+  flex: 1 1 220px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  font-size: 0.95rem;
+}
+
+/* CTA Button */
+.cta-button-center {
+  text-align: center;
+  margin: 2.5rem 0;
+}
+
+.abt-btn {
+  background: var(--brand-color);
+  color: var(--text-light);
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--transition);
+}
+
+.abt-btn:hover {
+  background: var(--brand-dark);
+}
+
+/* ===== Footer ===== */
+.footer-custom {
+  background-color: #222;
+  color: #ccc;
+  padding: 4rem 2rem 1rem;
+}
+
+.footer-custom .container > .d-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .footer-custom .container > .d-flex {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    column-gap: 6rem;
+    text-align: center;
+  }
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+}
+
+.footer-col h5 {
+  color: var(--brand-color);
+  margin-bottom: 1rem;
+}
+
+/* Footer Nav Links */
+.footer-custom .footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-custom .footer-col a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+.footer-custom .footer-col a:hover,
+.footer-custom .footer-col a:focus {
+  color: var(--brand-color) !important;
+  text-decoration: underline !important;
+}
+
+/* Social Icons */
+.footer-custom .footer-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .footer-custom .footer-socials {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.footer-custom .footer-socials a {
+  font-size: 1.25rem;
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.footer-custom .footer-socials a:hover,
+.footer-custom .footer-socials a:focus {
+  color: var(--brand-color) !important;
+  transform: scale(1.08) !important;
+  text-decoration: none !important;
+}
+
+/* Contact Form */
+.footer-col form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.footer-col form input,
+.footer-col form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+}
+
+.footer-col form button {
+  background-color: var(--brand-color);
+  border: none;
+  color: var(--text-light);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.footer-col form button:hover {
+  background-color: var(--brand-dark);
+  color: black;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #aaa;
+}
+
+/* ===== Back to Top Button ===== */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  background-color: var(--brand-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 0.6rem 0.8rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  opacity: 0.85;
+  display: none; /* show via JS */
+  transition: opacity 0.3s, background-color 0.3s, transform 0.2s;
+  z-index: 999;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+  background-color: var(--brand-dark);
+  transform: translateY(-2px);
+}
+/* Footer links & socials: reset visited & active back to default */
+.footer-custom a:link,
+.footer-custom a:visited,
+.footer-custom .footer-socials a:link,
+.footer-custom .footer-socials a:visited {
+  color: #ccc;               /* your default icon & link color */
+  text-decoration: none;
+}
+
+/* Hover (and focus) only changes color */
+.footer-custom a:hover,
+.footer-custom a:focus,
+.footer-custom .footer-socials a:hover,
+.footer-custom .footer-socials a:focus {
+  color: var(--brand-color) !important;
+  transform: scale(1.08) !important;  /* for socials only */
+}
+
+/* Active state follows hover briefly, then returns to default */
+.footer-custom a:active,
+.footer-custom .footer-socials a:active {
+  color: var(--brand-color) !important;
+}
