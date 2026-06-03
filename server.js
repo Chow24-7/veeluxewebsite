@@ -26,42 +26,95 @@ app.get('/', (req, res) => {
   res.send('Veeluxe Backend is running...');
 });
 
+// Order Statuses Configuration
+const ORDER_STATUSES = {
+  PENDING_PAYMENT: 'Pending Payment',
+  PAYMENT_CONFIRMED: 'Payment Confirmed',
+  PROCESSING: 'Processing',
+  DISPATCHED: 'Dispatched',
+  IN_TRANSIT: 'In Transit',
+  OUT_FOR_DELIVERY: 'Out for Delivery',
+  CUSTOMS_CLEARANCE: 'Pending Customs Clearance',
+  DELIVERED: 'Delivered',
+  DELIVERY_FAILED: 'Delivery Failed'
+};
+
+// Notification Helper
+async function sendStatusNotification(email, status, orderDetails) {
+  const mailOptions = {
+    from: `"Veeluxe Skincare" <${process.env.GMAIL_USER}>`,
+    to: email,
+    subject: `Order Update: ${status} - ${orderDetails.reference}`,
+    text: `
+Hello ${orderDetails.customer_name},
+
+Your order status has been updated to: ${status}
+
+Order Reference: ${orderDetails.reference}
+Total Amount: ₦${orderDetails.amount.toLocaleString()}
+
+${status === ORDER_STATUSES.DISPATCHED ? 'Tracking Number: ' + (orderDetails.tracking_number || 'TBA') : ''}
+${status === ORDER_STATUSES.DELIVERY_FAILED ? 'Retry Instructions: Our courier will contact you within 24 hours for a second delivery attempt.' : ''}
+
+Thank you for choosing Veeluxe!
+    `,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log(`Notification sent to ${email} for status ${status}`);
+  } catch (error) {
+    console.error(`Error sending notification to ${email}:`, error);
+  }
+}
+
 // Verify Payment Endpoint
 app.post('/verify-payment', async (req, res) => {
-  const { transaction_id, tx_ref, amount, email, customer_name, items } = req.body;
+  const { reference, amount, email, customer_name, items } = req.body;
 
-  if (!transaction_id) {
-    return res.status(400).json({ status: 'error', message: 'Transaction ID is required' });
+  if (!reference) {
+    return res.status(400).json({ status: 'error', message: 'Transaction reference is required' });
   }
 
   try {
-    // Verify transaction with Flutterwave
+    // Verify transaction with Paystack
     const response = await axios.get(
-      `https://api.flutterwave.com/v3/transactions/${transaction_id}/verify`,
+      `https://api.paystack.co/transaction/verify/${reference}`,
       {
         headers: {
-          Authorization: `Bearer ${process.env.FLW_SECRET_KEY}`,
+          Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
         },
       }
     );
 
     const verificationData = response.data.data;
 
+    // Construct items list for email
+    const itemsList = items && items.length > 0 
+      ? items.map(item => `- ${item.name} (Qty: ${item.quantity}) - ₦${(item.price * item.quantity).toLocaleString()}`).join('\n')
+      : 'No items details provided';
+
     // Strict validation
     if (
-      verificationData.status === 'successful' &&
-      verificationData.amount >= amount &&
-      verificationData.currency === 'NGN' &&
-      verificationData.tx_ref === tx_ref
+      verificationData.status === 'success' &&
+      verificationData.amount >= amount * 100 &&
+      verificationData.customer.email === email
     ) {
       // Payment is verified successfully
-      console.log(`Payment verified for ${email}: ${tx_ref}`);
+      console.log(`Payment verified for ${email}: ${reference}`);
+
+      // Send initial notification
+      await sendStatusNotification(email, ORDER_STATUSES.PAYMENT_CONFIRMED, {
+        reference,
+        amount,
+        customer_name
+      });
 
       // Send email to owner
       const ownerMailOptions = {
         from: `"Veeluxe Skincare" <${process.env.GMAIL_USER}>`,
         to: 'Veeluxebrand@gmail.com',
-        subject: `New Order Received - ${tx_ref}`,
+        subject: `New Order Received - ${reference}`,
         text: `
 New order received!
 
@@ -73,10 +126,11 @@ Order Details:
 ${itemsList}
 
 Total Amount: ₦${amount.toLocaleString()}
-Transaction Reference: ${tx_ref}
-Flutterwave Transaction ID: ${transaction_id}
+Transaction Reference: ${reference}
+Paystack Transaction ID: ${verificationData.id}
 
 Payment Status: VERIFIED
+Initial Order Status: ${ORDER_STATUSES.PAYMENT_CONFIRMED}
         `,
       };
 
