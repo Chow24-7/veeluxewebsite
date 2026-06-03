@@ -108,6 +108,12 @@
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="products.html" class="nav-link">Products</a></li>
         <li>
+          <a href="wishlist.html" class="nav-link">
+            <i class="ri-heart-line fs-4"></i>
+            <span class="wishlist-count badge bg-danger">0</span>
+          </a>
+        </li>
+        <li>
           <a href="cart.html" class="nav-link cart-icon">
             <i class="ri-shopping-cart-2-line fs-4"></i>
             <span class="cart-count badge bg-danger">0</span>
@@ -148,6 +154,10 @@
               <span>Subtotal</span>
               <span id="cart-subtotal">₦0.00</span>
             </div>
+            <div class="summary-row text-success" style="display: none;">
+              <span>Savings</span>
+              <span id="cart-savings">₦0.00</span>
+            </div>
             <div class="summary-row">
               <span>Shipping</span>
               <span id="cart-shipping">₦0.00</span>
@@ -157,6 +167,10 @@
               <span id="cart-total">₦0.00</span>
             </div>
             <button class="btn btn-orangered w-100 mt-4" id="checkout-btn" disabled>Proceed to Checkout</button>
+            <div class="text-center mt-3">
+              <span class="text-muted small">New customer? Checkout as a guest!</span>
+              <a href="checkout.html" class="d-block text-primary small fw-bold mt-1">Guest Checkout</a>
+            </div>
           </div>
         </div>
       </div>
@@ -195,6 +209,20 @@
             <li><a href="products.html">Products</a></li>
             <li><a href="index.html#reviews">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li>
+              <a href="wishlist.html" class="d-flex align-items-center gap-2">
+                <i class="ri-heart-line fs-5"></i>
+                <span>Wishlist</span>
+                <span class="wishlist-count badge bg-danger">0</span>
+              </a>
+            </li>
+            <li>
+              <a href="cart.html" class="d-flex align-items-center gap-2">
+                <i class="ri-shopping-cart-2-line fs-5"></i>
+                <span>Cart</span>
+                <span class="cart-count badge bg-danger">0</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -206,30 +234,22 @@
 
   <!-- Cart Item Template -->
   <template id="cart-item-template">
-    <div class="cart-item" data-product-id="">
-      <div class="row align-items-center">
-        <div class="col-12 col-md-2 mb-3 mb-md-0">
-          <img src="" alt="" class="cart-item-img">
+    <div class="cart-item">
+      <img src="" alt="" class="cart-item-img">
+      <div class="item-details">
+        <h5 class="product-name"></h5>
+        <div class="unit-price small text-muted"></div>
+        <div class="stock-status"></div>
+        <div class="qty-controls">
+          <button class="quantity-btn decrease-btn"><i class="ri-subtract-line"></i></button>
+          <input type="number" class="quantity-input" value="1" min="1">
+          <button class="quantity-btn increase-btn"><i class="ri-add-line"></i></button>
         </div>
-        <div class="col-12 col-md-4 mb-3 mb-md-0">
-          <h5 class="product-name mb-1"></h5>
-          <p class="price mb-0 text-muted"></p>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="quantity-control">
-            <button class="quantity-btn decrease-btn">-</button>
-            <input type="number" class="quantity-input" value="1" min="1" max="10">
-            <button class="quantity-btn increase-btn">+</button>
-          </div>
-        </div>
-        <div class="col-4 col-md-2 text-end">
-          <p class="item-total mb-0 fw-bold"></p>
-        </div>
-        <div class="col-2 col-md-1 text-end">
-          <button class="remove-item" title="Remove item">
-            <i class="ri-delete-bin-line"></i>
-          </button>
-        </div>
+        <button class="btn-save-later"><i class="ri-heart-line"></i> Save for Later</button>
+      </div>
+      <div class="text-end">
+        <button class="remove-item mb-2" title="Remove item"><i class="ri-delete-bin-line"></i></button>
+        <div class="item-total fw-bold"></div>
       </div>
     </div>
   </template>
